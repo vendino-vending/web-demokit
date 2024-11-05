@@ -1,0 +1,11 @@
+{
+  "appId": "com.vendino.ionic",
+  "appName": "vendino_ionic",
+  "bundledWebRuntime": false,
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}
