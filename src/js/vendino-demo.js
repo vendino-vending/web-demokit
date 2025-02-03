@@ -99,7 +99,11 @@ window.customElements.define(
 
       self.shadowRoot.querySelector('#dispense-item').addEventListener('click', async function (e) {
         try {
-          const dispenseResult = await VendinoMachinePlugin.dispense(1);
+          const dispenseRequest = {
+            "slotNo": 1,
+            "reference": "TEST" + Math.random().toString(36).substring(7)
+          }
+          const dispenseResult = await VendinoMachinePlugin.dispense(dispenseRequest);
           console.log('Dispense Item', dispenseResult);
           if (dispenseResult.status === "SUCCESS") {
             self.shadowRoot.querySelector('#dispense-result').innerText = `Dispense successful`;
@@ -129,7 +133,13 @@ window.customElements.define(
 
       self.shadowRoot.querySelector('#request-payment').addEventListener('click', async function (e) {
         try {
-          const healthStatus = await VendinoMachinePlugin.requestPayment(1, "TEST11", "GRABPAY");
+          const payload = {
+            "amount": 1,
+            "reference": "TEST11",
+            "paymentMethod": "grabpayQR"
+          }
+          payload.reference = "TEST-" + Math.random().toString(36).substring(7);
+          const healthStatus = await VendinoMachinePlugin.requestPayment(payload);
           console.log('health status', healthStatus);
           if (healthStatus.status == "SUCCESS") {
             self.shadowRoot.querySelector('#payment-result').innerText = `Payment is ok`;
