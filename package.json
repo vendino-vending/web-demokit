@@ -17,7 +17,7 @@
     "@capacitor/camera": "latest",
     "@capacitor/core": "^6.1.2",
     "@capacitor/splash-screen": "latest",
-    "vendino-machine": "file:vendino-machine"
+    "vendino-machine": "file:../vendino-machine"
   },
   "devDependencies": {
     "@capacitor/cli": "^6.1.2",
