@@ -1,34 +1,139 @@
-ion-content {
-    --background: #fff;
-    padding: 10px;
-    text-align: center;
+ion-header {
+    ion-toolbar {
+      height: 60px; // Increase height
+      font-size: 1.8rem; // Increase font size for text
+    }
+  
+    ion-title {
+      font-size: 1.8rem; // Make the title bigger
+    }
+  
+    ion-button {
+      font-size: 1.5rem; // Increase button text size
+    }
+  
+    ion-icon {
+      font-size: 2rem; // Make icons larger
+    }
 }
 
-.payment-options {
+ion-footer {
+    ion-toolbar {
+        --min-height: 50px !important; /* ✅ Reduce excessive height */
+        padding: 5px 10px; /* ✅ Better spacing */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+    ion-title {
+        font-size: 1.8rem; // Bigger title
+    }
+
+    ion-button {
+        font-size: 1.5rem; // Increase button size
+        padding: 12px 20px; // Make buttons bigger
+    }
+
+    ion-icon {
+        font-size: 2rem; // Enlarge icons
+    }
+
+    --min-height: 60px !important; /* ✅ Slightly reduce footer height */
+}
+  
+  ion-toolbar {
+    --min-height: 50px !important; /* ✅ Ensure toolbar height matches */
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Match Font Sizes */
+  .center-text {
+    font-size: 1.4rem; /* ✅ Matches the item menu page */
+    text-align: center;
+  }
+  
+  /* Match Cart Badge Styles */
+  .cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 20px 0;
-}
+    border: 2px solid white;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+  }
 
-.payment-options ion-button {
-    background: transparent;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.payment-options img {
-    width: 100px;
-    height: auto;
-}
-
+  .payment-title {
+    font-size: 1.5rem; /* ✅ Same size as the item menu's section headers */
+    text-align: center;
+    padding-top: 30px;
+  }
+  
+  .payment-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    width: 100%;
+  }
+  
+  /* Payment Options Section - Full Width */
+  .payment-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* ✅ Dynamically adjust to screen */
+    gap: 15px; /* ✅ Adds spacing between buttons */
+    width: 100%; /* ✅ Use full width */
+    max-width: 90%; /* ✅ Keep margin from screen edges */
+    padding: 10px 0;
+    justify-content: center; /* ✅ Ensures buttons are centered */
+  }
+  
+  /* Fix button size issues */
+  .payment-options ion-button {
+    width: 100%; /* ✅ Stretch buttons to fill their column */
+    height: 60px; /* ✅ Maintain consistent button size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+  
+  /* Fix Payment Logos */
+  .payment-options img {
+    max-width: 100px; /* ✅ Ensures logos don't shrink */
+    max-height: 40px;
+    object-fit: contain;
+  }  
+  
+/* QR Code Section */
 .qr-container {
-    margin-top: 20px;
-}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0; /* ✅ Maintain spacing */
+  }
+  
+  /* Fixed QR Code Size */
+  .qr-container img {
+    width: 400px;  /* ✅ Fixed width */
+    height: 400px; /* ✅ Fixed height */
+    object-fit: contain;
+  }  
 
-.qr-container img {
-    width: 200px;
-    height: auto;
-}
+  .qr-title {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 20px;
+  }

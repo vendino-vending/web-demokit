@@ -11,12 +11,12 @@
 
 <ion-content>
   <div *ngIf="cart.length === 0" class="empty-cart">
-    <p>Your cart is empty.</p>
+    <p class="indent">Your cart is empty.</p>
   </div>
 
   <div *ngFor="let item of cart" class="cart-item">
     <div class="cart-info">
-      <p>{{ item.name }} - {{ item.price | currency:'MYR' }}</p>
+      <p>{{ item.name }} - {{ item.price | currency:'RM' }}</p>
     </div>
 
     <div class="cart-actions">

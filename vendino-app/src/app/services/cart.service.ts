@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root' // ✅ Makes the service available app-wide
@@ -6,6 +7,9 @@ import { Injectable } from '@angular/core';
 export class CartService {
   private cart: any[] = [];
   private totalPrice: number = 0;
+  private cartItemCount: number = 0;
+
+  cartChanged = new BehaviorSubject<void>(undefined); // ✅ Notify subscribers when cart changes
 
   constructor() {}
 
@@ -29,24 +33,30 @@ export class CartService {
       this.cart.push({ ...item, quantity: 1 });
     }
     this.calculateTotal();
+    this.cartChanged.next(); // ✅ Notify changes
   }
 
   getItemQuantity(item: any): number {
     let cartItem = this.cart.find(cartItem => cartItem.name === item.name);
     return cartItem ? cartItem.quantity : 0;
-  }  
+  }
 
   clearCart() {
     this.cart = [];
     this.totalPrice = 0;
+    this.cartItemCount = 0;
+    this.cartChanged.next(); // ✅ Notify subscribers
   }
 
   updateCart(updatedCart: any[], updatedTotal: number) {
     this.cart = updatedCart; // ✅ Save new cart items
     this.totalPrice = updatedTotal; // ✅ Save updated price
-  }  
+    this.cartChanged.next(); // ✅ Notify subscribers
+  }
 
   private calculateTotal() {
     this.totalPrice = this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    this.cartItemCount = this.getTotalItemCount(); // ✅ Ensure cart count updates correctly
+    this.cartChanged.next(); // ✅ Notify subscribers
   }
 }

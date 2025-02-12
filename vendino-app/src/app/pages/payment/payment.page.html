@@ -2,31 +2,38 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button routerLink="/item-menu">
-        <ion-icon name="caret-back"></ion-icon>&nbsp;Back
+        <ion-icon name="caret-back"></ion-icon>&nbsp; Back
       </ion-button>
     </ion-buttons>
-    <ion-title style="text-align: center;">
-      yyyy-mm-dd  hh:mm:ss
-    </ion-title>
+    <ion-title class="center-text">yyyy-mm-dd hh:mm:ss</ion-title>
     <ion-buttons slot="end">
-      <ion-title>
-        12345
-      </ion-title>
+      <ion-title>12345</ion-title>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <h2 style="padding-top: 50px;">Select Payment Method</h2>
-  <div class="payment-options">
-    <ion-button *ngFor="let method of paymentMethods" (click)="generateQRCode(method.qr)">
-      <img [src]="method.image" alt="{{ method.name }}">
-    </ion-button>
-  </div>
-  
-  <h3>Scan QR Code Here</h3>
-  <div class="qr-container" *ngIf="qrCode">
-    <img [src]="qrCode" alt="Payment QR Code">
+  <h2 class="payment-title">Select Payment Method</h2>
+
+  <div class="payment-container">
+    <!-- Payment Options Section -->
+    <div class="payment-options">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4" *ngFor="let method of paymentMethods">
+            <ion-button expand="full" (click)="generateQRCode(method.qr)">
+              <img [src]="method.image" alt="{{ method.name }}">
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <!-- QR Code Section -->
+    <h3 class="qr-title">Scan QR Code Here</h3>
+    <div class="qr-container" *ngIf="qrCode">
+      <img [src]="qrCode" alt="Payment QR Code">
+    </div>
   </div>
 </ion-content>
 
@@ -34,8 +41,8 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button>
-        <ion-icon name="cart-outline"></ion-icon>
-        RM {{ totalPrice | currency:'MYR' }}
+        <ion-icon name="cart-outline"></ion-icon>&nbsp;
+        {{ totalPrice | currency:'RM' }}
       </ion-button>
     </ion-buttons>
     <ion-title>Items Selected: {{ cartItemCount }}</ion-title>

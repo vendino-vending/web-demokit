@@ -45,8 +45,8 @@
           <span class="cart-badge" *ngIf="getTotalItemCount() > 0">
             {{ getTotalItemCount() }}
           </span>
-        </div>
-        RM {{ getTotalPrice() | currency:'MYR' }}
+        </div>&nbsp;
+         {{ getTotalPrice() | currency:'RM' }}
       </ion-button>
     </ion-buttons>
     <ion-title>Items Selected: {{ getTotalItemCount() }}</ion-title>

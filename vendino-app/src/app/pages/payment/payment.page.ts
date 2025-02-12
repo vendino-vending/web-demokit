@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CartService } from '../../services/cart.service'; // ✅ Import CartService
 
 @Component({
   selector: 'app-payment',
@@ -6,23 +7,48 @@ import { Component } from '@angular/core';
   styleUrls: ['./payment.page.scss'],
   standalone: false
 })
-export class PaymentPage {
+export class PaymentPage implements OnInit{
   paymentMethods = [
     { name: 'GrabPay', image: 'assets/img/grab_pay.png', qr: 'assets/img/qr_code_sample.png' },
-    { name: 'ShopeePay', image: 'assets/img/shopee_pay.png', qr: 'assets/img/fail_icon.png' },
-    { name: 'TouchNGo', image: 'assets/img/tng_ewallet_logo.png', qr: 'assets/img/success_icon.png' },
-    { name: 'Boost', image: 'assets/img/boost_pay.png', qr: 'assets/img/protein_bar.png' },
-    { name: 'Maybank QRPay', image: 'assets/img/maybank_qrpay.png', qr: 'assets/img/loading.jpg' },
-    { name: 'Visa/MasterCard', image: 'assets/img/visa_mastercard.png', qr: 'assets/img/qr_code_sample.png' }
+    { name: 'ShopeePay', image: 'assets/img/shopee_pay.png', qr: 'assets/img/protein_bar.png' },
+    { name: 'TnG eWallet', image: 'assets/img/tng_ewallet_logo.png', qr: 'assets/img/success_icon.png' },
+    { name: 'Boost', image: 'assets/img/boost_pay.png', qr: 'assets/img/fail_icon.png' },
+    { name: 'Maybank QR Pay', image: 'assets/img/maybank_qrpay.png', qr: 'assets/img/loading.jpg' },
+    { name: 'Visa', image: 'assets/img/visa_mastercard.png', qr: 'assets/img/qr_code_sample.png' }
   ];
 
-  qrCode: string | null = null;
-  totalPrice = 123.45;
-  cartItemCount = 1;
+  qrCode: string | null = null; // ✅ Stores the selected QR code image
+  totalPrice: number = 0; // ✅ Stores the total price from the cart
+  cartItemCount: number = 0; // ✅ Stores the total item count from the cart
 
-  constructor() {}
+  constructor(private cartService: CartService) {}
 
+  ngOnInit() {
+    this.updateCartInfo(); // ✅ Load cart info when page initializes
+
+    // ✅ Listen for changes in the cart
+    this.cartService.cartChanged.subscribe(() => {
+      this.updateCartInfo();
+    });
+  }
+
+  // ✅ Fetch total price and item count from CartService
+  updateCartInfo() {
+    this.totalPrice = this.cartService.getTotalPrice();
+    this.cartItemCount = this.cartService.getTotalItemCount();
+  }
+
+  // ✅ Display the selected QR code when a payment method is clicked
   generateQRCode(qrImage: string) {
     this.qrCode = qrImage;
+  }
+
+  // ✅ Helper function to split array into chunks of 3 for proper display
+  chunkArray(arr: any[], chunkSize: number): any[][] {
+    let results = [];
+    for (let i = 0; i < arr.length; i += chunkSize) {
+      results.push(arr.slice(i, i + chunkSize));
+    }
+    return results;
   }
 }
