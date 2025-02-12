@@ -1,0 +1,7 @@
+{
+  "name": "vendino-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,51 @@
+.indent{
+    padding-left: 15px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between; /* ✅ Ensures buttons align right */
+    align-items: center; /* ✅ Keeps everything in one row */
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .cart-info {
+    flex-grow: 1; /* ✅ Makes the item name take available space */
+  }
+  
+  .cart-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* ✅ Spacing between buttons */
+  }
+  
+  ion-button {
+    --padding-start: 8px !important;
+    --padding-end: 8px !important;
+    --border-radius: 50% !important;
+  }
+  
+  .total-price {
+    text-align: right;
+    font-weight: bold;
+    padding: 15px;
+  }
+
+  .bottom-modal {
+    --height: 50vh !important; /* ✅ Fixes modal height at 50% of the screen */
+    --border-radius: 20px 20px 0 0 !important; /* ✅ Keeps rounded corners */
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    max-height: 50vh !important;
+    touch-action: none; /* ✅ Prevents any dragging */
+  }
+  
+  ion-modal.bottom-modal::part(content) {
+    pointer-events: auto; /* ✅ Ensures content inside the modal works */
+    transform: none !important; /* ✅ Prevents dragging */
+  }
+  
+  

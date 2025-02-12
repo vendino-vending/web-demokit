@@ -1,0 +1,34 @@
+ion-content {
+    --background: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.payment-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.payment-options ion-button {
+    background: transparent;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.payment-options img {
+    width: 100px;
+    height: auto;
+}
+
+.qr-container {
+    margin-top: 20px;
+}
+
+.qr-container img {
+    width: 200px;
+    height: auto;
+}

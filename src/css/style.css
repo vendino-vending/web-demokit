@@ -1,5 +1,90 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
+/* Reset & Global Styles */
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFF7E1;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #4A3F2A;
+        color: #FCE38A;
+    }
+    vendino-demo {
+        background: #5C4E33;
+        color: white;
+    }
+    .button {
+        background-color: #FFC107;
+    }
+    .button:hover {
+        background-color: #E0A800;
+    }
+}
+
+/* Main Container */
+vendino-demo {
+    background: #FFF3C2;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Title Bar */
+capacitor-welcome-titlebar {
+    display: block;
+    background: linear-gradient(135deg, #FFC107, #E0A800);
+    color: white;
+    padding: 18px;
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: 16px 16px 0 0;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+.button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-top: 12px;
+    background: #FFC107;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: transform 0.2s, background 0.3s;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+    background: #E0A800;
+    transform: scale(1.05);
+}
+
+.button:active {
+    transform: scale(0.98);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Results */
+a {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.95em;
+    color: #555;
+    font-weight: 500;
 }

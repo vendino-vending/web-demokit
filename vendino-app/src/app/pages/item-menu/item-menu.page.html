@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/start">
+        <ion-icon name="caret-back"></ion-icon>&nbsp; Back
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="center-text">yyyy-mm-dd hh:mm:ss</ion-title>
+    <ion-buttons slot="end">
+      <ion-title>12345</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar placeholder="Enter Slot Number"></ion-searchbar>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" *ngFor="let item of items">
+        <ion-card [ngClass]="{'sold-out': item.soldOut}" (click)="addToCart(item)">
+          <div class="item-badge" *ngIf="cartService.getItemQuantity(item) > 0">
+            {{ cartService.getItemQuantity(item) }}
+          </div>
+          <img [src]="item.image" />
+          <ion-card-content>
+            <p style="text-align: center;">{{ item.name }}</p>
+            <p style="text-align: center;">{{ item.price | currency:'RM ' }}</p>
+          </ion-card-content>
+          <div class="sold-out-overlay" *ngIf="item.soldOut">
+            <ion-badge color="danger" class="sold-out-badge">SOLD OUT</ion-badge>
+          </div>
+        </ion-card>
+      </ion-col>      
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="openCartModal()">
+        <div class="cart-container">
+          <ion-icon name="cart-outline"></ion-icon>
+          <span class="cart-badge" *ngIf="getTotalItemCount() > 0">
+            {{ getTotalItemCount() }}
+          </span>
+        </div>
+        RM {{ getTotalPrice() | currency:'MYR' }}
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Items Selected: {{ getTotalItemCount() }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="danger" (click)="clearCart()">CLEAR ALL</ion-button>
+      <ion-button color="warning" routerLink="/payment">BUY NOW</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
+
+
+
+

@@ -1,0 +1,92 @@
+@import "~@ionic/angular/css/core.css";
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+ion-content {
+    --background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw; /* Ensure full width */
+    padding: 20px; /* Optional: Adds spacing for smaller DPI */
+}
+
+.start-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #ffffff; // Adjust as needed
+  
+    .logo {
+      width: 60%; // Adjusted for scaling
+      max-width: 600px;
+      margin-bottom: 40px; // Ensure proper spacing
+    }
+  
+    .click-area {
+      position: relative;
+      width: 300px; // Adjusted for 1080x1920
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+  
+      .click-icon {
+        width: 300px; // Adjust size based on DPI
+        height: auto;
+        margin-bottom: 20px;
+      }
+  
+      p {
+        font-size: 28px; // Adjusted for readability
+        color: #333;
+        font-weight: bold;
+        text-align: center;
+      }
+  
+      .layer1 {
+        position: absolute;
+        width: 120%;
+        height: 120%;
+        border-radius: 50%;
+        background: grey;
+        animation: pulse 2s infinite;
+        z-index: -1;
+      }
+
+      .layer2 {
+        position: absolute;
+        width: 120%;
+        height: 120%;
+        border-radius: 50%;
+        background: black;
+        animation: pulse 2s infinite;
+        z-index: -2;
+      }
+  
+      .layer2 {
+        animation-delay: 1s;
+      }
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+  
