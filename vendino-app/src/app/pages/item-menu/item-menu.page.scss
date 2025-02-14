@@ -30,6 +30,14 @@ ion-content {
       padding: 5px 10px;
       width: 100%;
   }
+
+  ion-searchbar {
+      --background: #f0f0f0;
+      --placeholder-color: #000000b5;
+      --color: #000;
+      margin-top: 5px;
+      margin-bottom: 10px;
+  }
 }
 
 /* 📌 Ensure footer buttons are properly styled */

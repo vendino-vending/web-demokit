@@ -21,20 +21,20 @@
       <ion-grid>
         <ion-row>
           <ion-col size="4" *ngFor="let method of paymentMethods">
-            <ion-button expand="full" (click)="generateQRCode(method.qr)">
-              <img [src]="method.image" alt="{{ method.name }}">
-            </ion-button>
+            <div class="payment-option" [ngClass]="{'selected': selectedPayment === method.name}" (click)="selectPayment(method)">
+            <img [src]="method.image" alt="{{ method.name }}">
+          </div>          
           </ion-col>
         </ion-row>
       </ion-grid>
     </div>
+  </div>  
 
     <!-- QR Code Section -->
     <h3 class="qr-title">Scan QR Code Here</h3>
     <div class="qr-container" *ngIf="qrCode">
       <img [src]="qrCode" alt="Payment QR Code">
     </div>
-  </div>
 </ion-content>
 
 <ion-footer>

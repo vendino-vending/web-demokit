@@ -15,7 +15,7 @@ ion-header {
   padding-top: 20px;
 }
 
-.font-size{
+.font-size {
   font-size: 1.5rem;
 }
 
@@ -74,8 +74,7 @@ ion-modal.bottom-modal::part(content) {
 .save-button {
   background: #4CAF50 !important; /* ✅ Green for "Save" action */
   color: white !important; /* ✅ White text for contrast */
-  font-size: 1.7rem; /* ✅ Match toolbar font size */
-  font-weight: bold;
+  font-size: 1.9rem; /* ✅ Match toolbar font size */
   margin-right: 15px;
   padding: 10px 25px; /* ✅ Adjust padding for better clickability */
   border-radius: 30px; /* ✅ Rounded corners for a softer look */
@@ -86,6 +85,6 @@ ion-modal.bottom-modal::part(content) {
 
 /* Icon Styling */
 .save-button ion-icon {
-  font-size: 1.7rem; /* ✅ Match toolbar font size */
+  font-size: 1.9rem; /* ✅ Match toolbar font size */
   margin-right: 5px; /* ✅ Add spacing between icon and text */
 }

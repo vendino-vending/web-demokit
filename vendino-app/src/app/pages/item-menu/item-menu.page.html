@@ -13,11 +13,11 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar placeholder="Enter Slot Number"></ion-searchbar>
+  <ion-searchbar mode="md" type="number" inputmode="numeric" placeholder="Enter Slot Number" (ionInput)="filterItems($event)"></ion-searchbar>
 
   <ion-grid>
     <ion-row>
-      <ion-col size="4" *ngFor="let item of items">
+      <ion-col size="4" *ngFor="let item of filteredItems">
         <ion-card [ngClass]="{'sold-out': item.soldOut}" (click)="addToCart(item)">
           <div class="item-badge" *ngIf="cartService.getItemQuantity(item) > 0">
             {{ cartService.getItemQuantity(item) }}
@@ -33,7 +33,7 @@
         </ion-card>
       </ion-col>      
     </ion-row>
-  </ion-grid>
+  </ion-grid>  
 </ion-content>
 
 <ion-footer>

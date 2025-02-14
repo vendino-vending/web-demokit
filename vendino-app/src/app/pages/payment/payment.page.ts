@@ -7,7 +7,7 @@ import { CartService } from '../../services/cart.service'; // ✅ Import CartSer
   styleUrls: ['./payment.page.scss'],
   standalone: false
 })
-export class PaymentPage implements OnInit{
+export class PaymentPage implements OnInit {
   paymentMethods = [
     { name: 'GrabPay', image: 'assets/img/grab_pay.png', qr: 'assets/img/qr_code_sample.png' },
     { name: 'ShopeePay', image: 'assets/img/shopee_pay.png', qr: 'assets/img/protein_bar.png' },
@@ -18,6 +18,7 @@ export class PaymentPage implements OnInit{
   ];
 
   qrCode: string | null = null; // ✅ Stores the selected QR code image
+  selectedPayment: string = ''; // ✅ Stores selected payment method
   totalPrice: number = 0; // ✅ Stores the total price from the cart
   cartItemCount: number = 0; // ✅ Stores the total item count from the cart
 
@@ -38,9 +39,10 @@ export class PaymentPage implements OnInit{
     this.cartItemCount = this.cartService.getTotalItemCount();
   }
 
-  // ✅ Display the selected QR code when a payment method is clicked
-  generateQRCode(qrImage: string) {
-    this.qrCode = qrImage;
+  // ✅ Highlight selected payment & update QR code
+  selectPayment(method: any) {
+    this.selectedPayment = method.name; // ✅ Save selected payment method
+    this.qrCode = method.qr; // ✅ Display the QR Code
   }
 
   // ✅ Helper function to split array into chunks of 3 for proper display

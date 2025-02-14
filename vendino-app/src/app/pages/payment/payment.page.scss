@@ -82,33 +82,41 @@ ion-footer {
     width: 100%;
   }
   
-  /* Payment Options Section - Full Width */
-  .payment-options {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* ✅ Dynamically adjust to screen */
-    gap: 15px; /* ✅ Adds spacing between buttons */
-    width: 100%; /* ✅ Use full width */
-    max-width: 90%; /* ✅ Keep margin from screen edges */
-    padding: 10px 0;
-    justify-content: center; /* ✅ Ensures buttons are centered */
-  }
-  
-  /* Fix button size issues */
-  .payment-options ion-button {
-    width: 100%; /* ✅ Stretch buttons to fill their column */
-    height: 60px; /* ✅ Maintain consistent button size */
+  .payment-option {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
+    border: 2px solid #ccc !important; /* ✅ Add a border */
+    border-radius: 12px !important; /* ✅ Rounded corners */
+    padding: 13px;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .payment-option:active {
+      transform: scale(0.95); /* ✅ Add a slight press effect */
+  }
+
+  /* ✅ Highlight selected payment option */
+  .payment-option.selected {
+      background-color: #e0e0e0 !important; /* ✅ Light gray background */
+  }
+
+  /* 🎨 Ensure images fit properly */
+  .payment-option img {
+    max-width: 100px;
+    height: 40px;
+    object-fit: contain;
   }
   
-  /* Fix Payment Logos */
-  .payment-options img {
-    max-width: 100px; /* ✅ Ensures logos don't shrink */
-    max-height: 40px;
+  /* 🖼 Ensure payment icons remain properly sized */
+  .payment-options ion-button img {
+    background: white; /* ✅ White background */
+    max-width: 125px;
+    height: 60px;
     object-fit: contain;
-  }  
+  }
   
 /* QR Code Section */
 .qr-container {
@@ -121,8 +129,8 @@ ion-footer {
   
   /* Fixed QR Code Size */
   .qr-container img {
-    width: 400px;  /* ✅ Fixed width */
-    height: 400px; /* ✅ Fixed height */
+    width: 420px;  /* ✅ Fixed width */
+    height: 420px; /* ✅ Fixed height */
     object-fit: contain;
   }  
 
