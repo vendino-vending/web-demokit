@@ -30,13 +30,17 @@ export class ItemMenuPage implements OnInit {
     this.items = [
       { name: 'Protein Bar', price: 3.00, image: 'assets/img/protein_bar.png', soldOut: false, quantity: 0 },
       { name: 'Energy Drink', price: 2.50, image: 'assets/img/energy_drink.png', soldOut: false, quantity: 0 },
-      { name: 'Water Bottle', price: 1.50, image: 'assets/img/water_bottle.png', soldOut: false, quantity: 0 }
+      { name: 'Water Bottle', price: 1.50, image: 'assets/img/water_bottle.png', soldOut: false, quantity: 0 },
+      { name: 'Burger', price: 4.50, image: 'assets/img/burger.png', soldOut: true, quantity: 0 }
     ];
   }
 
-  addToCart(item: Item) { // Define the type of item parameter
-    if (item.soldOut) return;
-    this.cartService.addToCart(item); // ✅ Use service to add items
+  addToCart(item: any) {
+    if (item.soldOut) {
+      console.log('This item is sold out and cannot be added.');
+      return;
+    }
+    this.cartService.addToCart(item);
   }
 
   getTotalItemCount() {

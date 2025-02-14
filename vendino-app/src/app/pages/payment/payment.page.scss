@@ -1,53 +1,47 @@
 ion-header {
-    ion-toolbar {
-      height: 60px; // Increase height
-      font-size: 1.8rem; // Increase font size for text
-    }
-  
-    ion-title {
-      font-size: 1.8rem; // Make the title bigger
-    }
-  
-    ion-button {
-      font-size: 1.5rem; // Increase button text size
-    }
-  
-    ion-icon {
-      font-size: 2rem; // Make icons larger
-    }
+  ion-toolbar {
+    padding-top: 20px; // Add padding to top
+    height: 100px; // Increase height
+    font-size: 2.3rem; // Increase font size for text
+  }
+
+  ion-title {
+    font-size: 2.3rem; // Make the title bigger
+  }
+
+  ion-button {
+    font-size: 2.0rem; // Increase button text size
+  }
+
+  ion-icon {
+    font-size: 2.5rem; // Make icons larger
+  }
 }
 
 ion-footer {
-    ion-toolbar {
-        --min-height: 50px !important; /* ✅ Reduce excessive height */
-        padding: 5px 10px; /* ✅ Better spacing */
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-    ion-title {
-        font-size: 1.8rem; // Bigger title
-    }
-
-    ion-button {
-        font-size: 1.5rem; // Increase button size
-        padding: 12px 20px; // Make buttons bigger
-    }
-
-    ion-icon {
-        font-size: 2rem; // Enlarge icons
-    }
-
-    --min-height: 60px !important; /* ✅ Slightly reduce footer height */
-}
-  
   ion-toolbar {
-    --min-height: 50px !important; /* ✅ Ensure toolbar height matches */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+      --min-height: 100px !important; /* ✅ Reduce excessive height */
+      padding: 5px 10px; /* ✅ Better spacing */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+  ion-title {
+      font-size: 2.0rem; // Bigger title
   }
+
+  ion-button {
+      font-size: 1.8rem; // Increase button size
+      padding: 12px 20px; // Make buttons bigger
+  }
+
+  ion-icon {
+      font-size: 3.0rem; // Enlarge icons
+  }
+
+  --min-height: 60px !important; /* ✅ Slightly reduce footer height */
+}
   
   /* Match Font Sizes */
   .center-text {

@@ -46,18 +46,15 @@
             {{ getTotalItemCount() }}
           </span>
         </div>&nbsp;
-         {{ getTotalPrice() | currency:'RM' }}
+        <span class="total-price"> {{ getTotalPrice() | currency:'RM' }} </span>
       </ion-button>
     </ion-buttons>
+
     <ion-title>Items Selected: {{ getTotalItemCount() }}</ion-title>
+
     <ion-buttons slot="end">
-      <ion-button color="danger" (click)="clearCart()">CLEAR ALL</ion-button>
-      <ion-button color="warning" routerLink="/payment">BUY NOW</ion-button>
+      <ion-button class="clear-button" (click)="clearCart()">CLEAR ALL</ion-button>
+      <ion-button class="buy-button" routerLink="/payment">BUY NOW</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-footer>
-
-
-
-
-

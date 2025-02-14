@@ -2,8 +2,8 @@
   <ion-toolbar>
     <ion-title>My Cart</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="saveAndClose()">
-        <ion-icon name="checkmark-outline"></ion-icon> Save
+      <ion-button class="save-button" (click)="saveAndClose()">
+        <ion-icon name="checkmark-outline"></ion-icon>Save
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -11,7 +11,7 @@
 
 <ion-content>
   <div *ngIf="cart.length === 0" class="empty-cart">
-    <p class="indent">Your cart is empty.</p>
+    <p class="indent font-size">Your cart is empty.</p>
   </div>
 
   <div *ngFor="let item of cart" class="cart-item">
@@ -33,5 +33,5 @@
     </div>
   </div>
 
-  <p class="total-price">Total: {{ totalPrice | currency:'MYR' }}</p>
+  <p class="total-price font-size">Total: {{ totalPrice | currency:'MYR' }}</p>
 </ion-content>
